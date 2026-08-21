@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Tech Voting System</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+  <header class="top-nav">
+    <div class="nav-brand">
+      <div class="brand-badge">DevPoll</div>
+      <span class="nav-title">Live Tech Voting System 🗳️</span>
+    </div>
+    
+    <div class="nav-actions">
+      <!-- Database Connection Status Badge -->
+      <div class="db-status-pill" id="dbStatusPill">
+        <span class="status-dot"></span>
+        <span id="dbStatusText">Checking Supabase DB...</span>
+      </div>
+
+      <button class="nav-btn" id="btnTheme" title="Toggle Dark/Light Theme">
+        <svg class="icon theme-icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="23" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="icon theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+    
+    <!-- Hero Poll Header -->
+    <div class="poll-hero">
+      <span class="hero-pill">Official Developer Tech Poll 🗳️</span>
+      <h1 class="hero-title">Vote for Your Favorite Technology Stack!</h1>
+      <p class="hero-subtitle">Cast your vote live. Results update in real-time backed by Supabase PostgreSQL Database.</p>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <span class="stat-num" id="totalVotesCount">0</span>
+          <span class="stat-label">Total Votes Cast</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="leadingTechName">-</span>
+          <span class="stat-label">Current Leader</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Candidates Grid -->
+    <div class="candidates-grid" id="candidatesGrid">
+      <div class="loading">Loading live candidates from API...</div>
+    </div>
+
+  </main>
+
+  <!-- Notification Toast -->
+  <div class="toast" id="toast">Vote submitted successfully!</div>
+
+  <script src="app.js"></script>
+</body>
+</html>
